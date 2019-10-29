@@ -1,0 +1,69 @@
+syntax on
+filetype on
+colorscheme molokai 
+set textwidth=256
+set fencs=utf-8,cp936
+set mouse=a
+set updatetime=100
+set fileencodings=utf-8,gb2312,gbk,gb18030
+set termencoding=utf-8
+set fileformats=unix
+set encoding=utf-8
+set hlsearch
+set backspace=indent,eol,start
+set nobackup       " no backup files
+set noswapfile     " no swap files
+set nowritebackup  " only in case you don't want a backup file while editing
+set noundofile     " no undo files
+set ai
+set number
+set nocompatible
+set history=1000
+set autoindent
+set smartindent
+set showmatch
+set guioptions-=T
+set ruler
+set tabstop=2
+set shiftwidth=2
+set expandtab
+set ignorecase
+set cindent
+set incsearch
+set showcmd
+set laststatus=2
+set maxmemtot=2000000
+set maxmem=2000000
+set maxmempattern=2000000
+"set noic
+if has("cscope")  
+	set csprg=/usr/bin/cscope  
+	set csto=0  
+	set cst  
+	set csverb  
+	set cspc=3  
+	set nocscopeverbose
+	"add any database in current dir  
+	if filereadable("cscope.out")  
+		cs add cscope.out  
+	"else search cscope.out elsewhere  
+	else  
+		let cscope_file=findfile("cscope.out", ".;")  
+		let cscope_pre=matchstr(cscope_file, ".*/")  
+		if !empty(cscope_file) && filereadable(cscope_file)  
+			exe "cs add" cscope_file cscope_pre  
+		endif        
+	endif  
+endif  
+
+filetype off
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
+Plugin 'fatih/vim-go'
+
+		" " All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
